@@ -1,0 +1,25 @@
+<view>
+  <view class="cut-bar"></view>
+  <view class='analysis-container'>
+    <block wx:if="{{hasKnowledgePoint}}">
+      <view>
+        <text>知识点：{{questionKnowledgePoint}}</text>
+      </view>
+    </block>
+    <block wx:if="{{hasQuestionPoint}}">
+      <view>
+        <text>题点：{{questionQuestionPoint}}</text>
+      </view>
+    </block>
+    <block wx:if="{{hasQuestionAnalysis}}">
+    <block wx:for="{{questionItem.questionAnalysis}}" wx:key="unique" wx:for-item="oneLineList">
+      <block wx:for="{{oneLineList}}" wx:key="unique">
+        <text wx:if="{{item.textType == 'text'}}" class="question-analysis-text">{{item.value}}</text>
+        <image wx:elif="{{item.textType == 'math-ml-image'}}" src="{{item.value}}" mode="aspectFit" class="question-analysis-image">
+        </image>
+      </block>
+      <view class="question-one-line-cut"></view>
+    </block>
+    </block>
+  </view>
+</view>

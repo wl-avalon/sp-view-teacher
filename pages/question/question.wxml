@@ -1,0 +1,36 @@
+<view class="main-container">
+<view class="selector" hover-class='selector-down' bindtap='modifySelectedCondition'>
+  <view class="selected-condition">
+    <text>题型：</text>
+    <text>高中，人教版，必修一</text>
+  </view>
+</view>
+<view class="cut-bar"></view>
+<view class="quesion-container">
+  <block wx:if="{{hasQuestionRemark}}">
+    <view wx:for="{{questionRemark}}" wx:key="unique">
+      {{item}}
+    </view>
+  </block>
+  <view wx:for="{{questionList}}" wx:key="unique" wx:for-item="questionItem" class="question-list" bindtap='queryQuestionAnalysis' data-question-item="{{questionItem}}">
+    <block wx:for="{{questionItem.questionContent}}" wx:key="unique" wx:for-item="oneLineList" class="question-item">
+      <block wx:for="{{oneLineList}}" wx:key="unique">
+        <text wx:if="{{item.textType == 'text'}}" class="question-content-text">{{item.value}}</text>
+        <image wx:elif="{{item.textType == 'math-ml-image'}}" src="{{item.value}}" mode="aspectFit" class="question-content-image">
+        </image>
+      </block>
+      <view class="question-one-line-cut"></view>
+    </block>
+    <view class='divLine'></view>
+    <view>答案：</view>
+    <block wx:for="{{questionItem.questionAnswer}}" wx:key="unique" wx:for-item="oneLineList">
+      <block wx:for="{{oneLineList}}" wx:key="unique">
+        <text wx:if="{{item.textType == 'text'}}" class="question-anwser-text">{{item.value}}</text>
+        <image wx:elif="{{item.textType == 'math-ml-image'}}" src="{{item.value}}" mode="aspectFit" class="question-anwser-image">
+        </image>
+      </block>
+      <view class="question-one-line-cut"></view>
+    </block>
+  </view>
+</view>
+</view>

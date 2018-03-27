@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/question/question",
+    "pages/mine/mine",
+    "pages/question/modifySelect/modifySelect",
+    "pages/question/queryAnalysis/queryAnalysis",
+    "pages/home/layoutHomework/layoutHomework"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "树人",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#000",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "iconPath": "resource/global/tabBar/home_up.png",
+        "selectedIconPath": "resource/global/tabBar/home_down.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "iconPath": "resource/global/tabBar/question_up.png",
+        "selectedIconPath": "resource/global/tabBar/question_down.png",
+        "pagePath": "pages/question/question",
+        "text": "问题"
+      },
+      {
+        "iconPath": "resource/global/tabBar/mine_up.png",
+        "selectedIconPath": "resource/global/tabBar/mine_down.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}

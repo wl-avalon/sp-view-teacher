@@ -1,0 +1,23 @@
+<view class="main-container ">
+  <picker bindchange="bindPickerChange" value="{{selectedIndex}}" range="{{subjectArray}}">
+    <view class='subject-picker'>
+    <view class="item-title">科目</view>
+    <view class="item-value">{{subjectArray[selectedIndex]}}</view>
+    </view>
+  </picker>
+  <block wx:for="{{homeContentList}}" wx:key="unique">
+    <view class="homework-content" data-name="{{index}}" bindtouchend="moveEnd" bindtouchstart="moveStart" animation="{{tempName == index || initPage ? deleteAnimation : ''}}">
+      <view class="item-title">作业内容</view>
+      <input class="item-input-value" placeholder="请输入作业内容" data-idx="{{index}}" value="{{item}}" bindinput="saveInput"></input> 
+      <view class="deleteItem bg colorWhite tc" catchtap="removeItem" data-idx="{{index}}"> 删 除 </view>
+    </view>
+  </block>
+  <view class="button-area">
+    <view class="plus-button" bindtap='addHomeworkContentItem'>
+      <image class="plus-button-img" src='../../../resource/global/plus.png' mode='aspectFit'></image>
+    </view>
+    <view class="commit-button" bindtap='commitHomework'>
+      <image class="commit-button-img" src='../../../resource/global/commit.png' mode='aspectFit'></image>
+    </view>
+  </view>
+</view>

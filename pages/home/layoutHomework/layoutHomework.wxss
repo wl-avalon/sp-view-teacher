@@ -1,0 +1,93 @@
+.subject-picker{
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  height: 50rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+ .homework-content{
+  margin-left: 50rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  height: 50rpx;
+  position: relative; 
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  overflow: visible;
+} 
+
+.item-value{
+  position:absolute; 
+  right: 30rpx;
+  text-align: right;
+}
+
+.plus-button{
+  width: 100%;
+  margin-top: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plus-button-img{
+  height: 100rpx;
+  widows: 100rpx;
+}
+
+.deleteItem {
+    position: absolute;
+    right: -160rpx;
+    top: -2rpx;
+    border-bottom: 1rpx solid #dcdcdc;
+    height: 90rpx;
+    line-height: 94rpx;
+    border-top: 2rpx solid #ccc;
+    width: 160rpx;
+}
+
+.bg {
+  background-color: #BE1E28;
+}
+
+.colorWhite  {
+  color: #fff;
+}
+
+.tc {
+  text-align: center;
+}
+
+.item-input-value{
+  position:absolute; 
+  right: 30rpx;
+  text-align: right;
+}
+
+.commit-button-img{
+  height: 100rpx;
+  widows: 100rpx;
+}
+
+.commit-button{
+  width: 100%;
+  margin-top: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-area{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  overflow: visible;
+}
