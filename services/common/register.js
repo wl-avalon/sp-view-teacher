@@ -35,6 +35,19 @@ function registerSuccess(accessToken, memberID) {
   wx.setStorageSync('accessToken', accessToken);
   wx.setStorageSync('memberID', memberID);
   wx.setStorageSync('isLogin', true);
+  wx.showToast({
+    title: "注册成功",
+    icon: 'success',
+    duration: 2000,
+    mask: true,
+    success: function () {
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '/pages/home/home',
+        });
+      }, 2000);
+    }
+  });
 }
 
 function registerFailed() {

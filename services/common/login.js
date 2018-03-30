@@ -1,13 +1,13 @@
 var PassportApi = require("/../../apis/PassportApi.js");
 
-var login = function (loginSuccessReal, loginFailedReal) {
+var login = function (params) {
   wx.login({
     success: function (res) {
       if (res.code) {
         wx.getUserInfo({
           withCredentials: true,
           lang: 'zh_CN',
-          success: function (userData) { getInitUserInfoSuccess(userData, res.code, loginSuccessReal, loginFailedReal); },
+          success: function (userData) { getInitUserInfoSuccess(userData, res.code, params.successFunc); },
           fail: function () { loginFailed(loginFailedReal); },
         });
       } else {
@@ -19,7 +19,7 @@ var login = function (loginSuccessReal, loginFailedReal) {
     }
   })
 }
-function getInitUserInfoSuccess(successData, code, loginSuccessReal, loginFailedReal) {
+function getInitUserInfoSuccess(successData, code, successFunc) {
   var userData = {
     encryptedData: successData.encryptedData,
     iv: successData.iv,
@@ -30,25 +30,27 @@ function getInitUserInfoSuccess(successData, code, loginSuccessReal, loginFailed
   PassportApi.login(
     code, 
     userData, 
-    function (response) { loginSuccess(response, loginSuccessReal, loginFailedReal) }, 
-    function () { loginFailed(loginFailedReal);}
+    function (response) { loginSuccess(response, successFunc) }, 
+    function () { loginFailed();}
   );
 }
 
-function loginSuccess(response, loginSuccessReal, loginFailedReal){
+function loginSuccess(response, successFunc){
   var returnCode  = response.error.returnCode;
   var data        = response.data;
   if (returnCode == 0 && data.accessToken && data.memberID) {
     wx.setStorageSync('accessToken', data.accessToken);
     wx.setStorageSync('memberID', data.memberID);
     wx.setStorageSync('isLogin', true);
-    loginSuccessReal();
+    if (successFunc !== undefined){
+      successFunc();
+    }
   } else{
-    loginFailed(loginFailedReal);
+    loginFailed();
   }
 }
 
-function loginFailed(loginFailedReal){
+function loginFailed(){
   wx.removeStorageSync('accessToken');
   wx.removeStorageSync('memberID');
   wx.removeStorageSync('isLogin');
@@ -58,13 +60,16 @@ function loginFailed(loginFailedReal){
     duration: 2000,
     mask: true,
   });
-  loginFailedReal();
 }
 
-var checkLogin = function (){
+var checkLogin = function (params){
   var isLogin = wx.getStorageSync('isLogin');
   if(!isLogin){
-    login();
+    login(params);
+  }else{
+    if (params !== undefined && params.successFunc !== undefined){
+      params.successFunc();
+    }
   }
 }
 

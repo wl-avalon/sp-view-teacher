@@ -1,0 +1,39 @@
+.class-info-input{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.class-name-area{
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.class-name-input{
+  position: absolute;
+  right: 30rpx;
+  text-align:right;
+}
+
+.commit-button-area{
+  margin-top: 50rpx;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.grade-picker{
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.grade-picker-value{
+  position: absolute;
+  right: 30rpx;
+  text-align:right;
+}

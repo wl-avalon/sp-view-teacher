@@ -1,2 +1,22 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="main-container gray-background-color height10000">
+  <view class="banner"></view>
+  <view class="user-info border-solid-top-bottom white-background-color">
+    <view class="user-icon-area">
+      <image src="{{userIcon}}" class="user-icon-img"></image>
+    </view>
+    <view class="user-name-area">
+      <view>{{userName}}</view>
+    </view>
+  </view>
+  <view class="main-button-area border-solid-top-bottom white-background-color">
+     <block wx:for="{{classList}}" wx:key="unique">
+      <view data-idx="{{index}}" bindtap='jumpToClassDetail' class='class-item' hover-class='class-item-down'>
+      {{item['classNowGrade']}} {{item['className']}}
+      </view>
+    </block> 
+    <!-- <view>{{classList[0]['classNowGrade']}}</view> -->
+    <view class="add-class-button-area" hover-class='add-class-button-down' bindtap='jumpToAddClassPage'>
+      添加班级
+    </view>
+  </view>
+</view>

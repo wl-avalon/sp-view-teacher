@@ -1,0 +1,55 @@
+.student-count-area{
+  width: 100%;
+  height: 90rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  display: flex; 
+  align-items: center;
+}
+
+.student-count-title{
+  padding-left: 30rpx;
+}
+
+.student-count-value{
+  position: absolute;
+  right: 30rpx;
+}
+
+.student-item{
+  width: 100%;
+  height: 90rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  display: flex; 
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.main-button-area{
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+}
+
+.jump-add-student-button{
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.jump-add-student-button-down{
+  width: 100%;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+}

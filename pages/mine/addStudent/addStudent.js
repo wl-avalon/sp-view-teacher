@@ -1,38 +1,32 @@
-var HomeworkApi = require('/../../../apis/Homework.js');
-var loginService = require("/../../../services/common/login.js");
-
+var SchoolAdminApi = require('/../../../apis/SchoolAdmin.js');
+var LoginService = require("/../../../services/common/login.js");
 Page({
 
+  /**
+   * 页面的初始数据
+   */
   data: {
-    subjectArray: ['语文','数学','英语','物理','化学','生物','历史','地理','政治'],
-    selectedIndex: 0,
-    homeContentList: ['', ''],
+    classUuid: '',
+    studentList: ['', ''],
     touchX: 0,
     touchY: 0,
     tempName: '',
     AnimatingName: '',
     deleteAnimation: '',
     initPage: true,
-  },
+    className: '',
+    classNowGrade: '',
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  },
   onLoad: function (options) {
-    loginService.checkLogin();
+    LoginService.checkLogin();
+    this.setData({
+      classUuid: options.classUuid,
+      className: options.className,
+      classNowGrade: options.classNowGrade,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onShow: function(){
     this.animation = wx.createAnimation({
       duration: 300,
       timingFunction: 'ease',
@@ -42,17 +36,12 @@ Page({
       deleteAnimation: tempAniamtion.export(),
     })
   },
-  bindPickerChange: function (e) {
-    this.setData({
-      selectedIndex: e.detail.value
-    })
-  },
-  addHomeworkContentItem: function(){
-    var homeContentList = this.data.homeContentList;
-    homeContentList.push('');
+  addStudentItem: function () {
+    var studentList = this.data.studentList;
+    studentList.push('');
     var tempAniamtion = this.animation.left('0rpx').step();
     this.setData({
-      homeContentList: homeContentList,
+      studentList: studentList,
       initPage: true,
       deleteAnimation: tempAniamtion.export(),
     });
@@ -94,7 +83,7 @@ Page({
       initPage: false,
     });
   },
-  removeItem: function(e) {
+  removeItem: function (e) {
     var idx = e.currentTarget.dataset.idx;
     // 如果没有这之间的代码，会有bug
     var tempAniamtion = this.animation.left('0rpx').step({ duration: 1 });
@@ -104,30 +93,41 @@ Page({
       deleteAnimation: tempAniamtion.export()
     })
     // 如果没有这之间的代码，会有bug
-    var homeContentList = this.data.homeContentList;
-    homeContentList.splice(idx, 1);
+    var studentList = this.data.studentList;
+    studentList.splice(idx, 1);
     // arrList = initData.dealFriends(datas);
     this.setData({
-      homeContentList: homeContentList,
+      studentList: studentList,
     })
   },
-  saveInput: function(e) {
-    var content         = e.detail.value;
-    var index           = e.currentTarget.dataset.idx;
-    var homeContentList = this.data.homeContentList;
-    homeContentList[index] = content;
-  },
-  commitHomework: function(){
-    HomeworkApi.commitHomework({
-      homeworkList: this.data.homeContentList,
-      subject: this.data.selectedIndex,
-      successFunc: commitHomeworkSuccess,
-      failedFunc: commitHomeworkFailed,
+  saveInput: function (e) {
+    var content = e.detail.value;
+    var index = e.currentTarget.dataset.idx;
+    var studentList = this.data.studentList;
+    studentList[index] = content;
+    this.setData({
+      studentList: studentList
     });
+  },
+  commitStudent: function(){
+    var studentList = this.data.studentList;
+    var studentMapList = [];
+    for (var i = 0; i < studentList.length; i++){
+      studentMapList.push({
+        name: studentList[i],
+      });
+    }
+    var inputParams = {
+      studentList: studentMapList,
+      classUuid: this.data.classUuid,
+      successFunc: commitSuccess,
+      failedFunc: commitFailed,
+    };
+    SchoolAdminApi.addStudents(inputParams); 
   }
 })
 
-function commitHomeworkSuccess(){
+function commitSuccess(){
   wx.showToast({
     title: "成功",
     icon: 'success',
@@ -136,16 +136,15 @@ function commitHomeworkSuccess(){
     success: function () {
       setTimeout(function () {
         wx.reLaunch({
-          url: '/pages/home/home',
+          url: '/pages/mine/mine',
         });
       }, 2000);
-    }   
+    }
   });
 }
-
-function commitHomeworkFailed(){
+function commitFailed(){
   wx.showToast({
-    title: "网络出错了，回到首页看下有没有布置成功吧",
+    title: "网络繁忙，请稍后再试",
     icon: 'none',
     duration: 2000,
     mask: true,

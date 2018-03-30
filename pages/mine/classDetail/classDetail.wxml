@@ -1,0 +1,12 @@
+<view class="main-container gray-background-color height10000">
+  <view class="student-count-area">
+    <text class="student-count-title">学生总数</text>
+    <text class="student-count-value">{{studentListCount}} 位</text>
+  </view>
+  <block wx:for="{{studentList}}" wx:key="unique">
+    <view class="student-item">{{item.studentName}}</view>
+  </block>
+  <view class="main-button-area">
+    <view class="jump-add-student-button" hover-class='jump-add-student-button-down' bindtap='jumpToAddStudent'>添加学生</view>
+  </view>
+</view>

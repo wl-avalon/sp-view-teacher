@@ -14,3 +14,20 @@
   width: 100%;
   overflow: hidden;
 }
+
+.gray-background-color{
+  background-color: #ececec;
+}
+
+.border-solid-top-bottom{
+  border-bottom: 1rpx solid #dcdcdc;
+  border-top: 1rpx solid #dcdcdc;
+}
+
+.white-background-color{
+  background-color: #ffffff;
+}
+
+.height10000{
+  height: 10000rpx;
+}

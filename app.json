@@ -1,11 +1,15 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/question/question",
     "pages/mine/mine",
+    "pages/question/question",
     "pages/question/modifySelect/modifySelect",
     "pages/question/queryAnalysis/queryAnalysis",
-    "pages/home/layoutHomework/layoutHomework"
+    "pages/home/layoutHomework/layoutHomework",
+    "pages/passport/register/register",
+    "pages/mine/addClass/addClass",
+    "pages/mine/classDetail/classDetail",
+    "pages/mine/addStudent/addStudent"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,12 +30,6 @@
         "selectedIconPath": "resource/global/tabBar/home_down.png",
         "pagePath": "pages/home/home",
         "text": "首页"
-      },
-      {
-        "iconPath": "resource/global/tabBar/question_up.png",
-        "selectedIconPath": "resource/global/tabBar/question_down.png",
-        "pagePath": "pages/question/question",
-        "text": "问题"
       },
       {
         "iconPath": "resource/global/tabBar/mine_up.png",

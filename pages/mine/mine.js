@@ -1,66 +1,69 @@
-// pages/mine/mine.js
+var SchoolAdminApi = require('/../../apis/SchoolAdmin.js');
+var LoginService = require("/../../services/common/login.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userIcon: '',
+    userName: '',
+    classList: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loginService.checkLogin();
+    var loginParams = {
+      successFunc: this.loginSuccess,
+    };
+    LoginService.checkLogin(loginParams);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  setUserIcon: function(res){
+    this.setData({
+      userIcon: res.userInfo.avatarUrl,
+      userName: res.userInfo.nickName,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  jumpToAddClassPage: function(){
+    wx.navigateTo({
+      url: './addClass/addClass',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  loginSuccess: function(){
+    var inputParams = {
+      successFunc: this.getMyClassSuccess,
+      failedFunc: this.getMyClassFailed
+    };
+    wx.getUserInfo({
+      lang: 'zh_CN',
+      success: this.setUserIcon,
+    })
+    SchoolAdminApi.getMyAllClass(inputParams);
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  getMyClassSuccess: function (data){
+    this.setData({
+      classList: data.classList,
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  getMyClassFailed: function(){
+    wx.showToast({
+      title: "网络繁忙，请稍后再试",
+      icon: 'none',
+      duration: 2000,
+      mask: true,
+    });
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  jumpToClassDetail: function(e){
+    var touchClassIndex = e.currentTarget.dataset.idx;
+    var classInfo = this.data.classList[touchClassIndex];
+    var classUuid = classInfo.classUuid;
+    var className = classInfo.className;
+    var classNowGrade = classInfo.classNowGrade;
+    var url = '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className' + className + '&classNowGrade=' + classNowGrade;
+    wx.navigateTo({
+      url: '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className=' + className + '&classNowGrade=' + classNowGrade,
+    })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

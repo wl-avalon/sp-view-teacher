@@ -15,7 +15,6 @@ var requestPost   = function(url, postData, successFunc, failedFunc) {
 }
 
 function success(res, successFunc, failedFunc){
-  console.log(res.data);
   if (res.statusCode != 200) {
     failed(failedFunc);
     return;
