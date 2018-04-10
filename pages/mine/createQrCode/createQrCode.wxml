@@ -1,0 +1,6 @@
+<view class="qr-code-area">
+  <image wx:if="{{type == 1}}" class="qr-code" src="https://www.wl-avalon.com/study-palace/school-admin/commit/createBindTeacherClassQRCode?classUuid={{classUuid}}">
+  </image>
+  <image wx:if="{{type == 2}}" class="qr-code" src="https://www.wl-avalon.com/study-palace/school-admin/commit/createParentCode?classUuid={{classUuid}}">
+  </image>
+</view>

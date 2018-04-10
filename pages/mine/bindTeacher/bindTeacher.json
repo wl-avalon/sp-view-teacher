@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "绑定班级",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#000",
+  "enablePullDownRefresh": false
+}

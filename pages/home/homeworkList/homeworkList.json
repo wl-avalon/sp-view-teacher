@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "今日作业",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#000",
+  "enablePullDownRefresh": false
+}

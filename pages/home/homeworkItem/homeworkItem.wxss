@@ -1,0 +1,53 @@
+page{
+  background-color: #ececec;
+}
+.homework-item-area{
+  width: 100%;
+  border-top: 1rpx solid #dcdcdc;
+}
+.homework-finish-process{
+  width: 100%;
+  height: 90rpx;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.not-done-student-item{
+  height: 90rpx;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.not-done-title{
+  margin-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.has-done-student-item{
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #dcdcdc;
+  background-color: #ffffff;
+}
+.has-done-student-name{
+  padding-left: 30rpx;
+}
+.has-done-title{
+  margin-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.has-done-student-cost-time{
+  position: absolute;
+  right: 30rpx;
+}

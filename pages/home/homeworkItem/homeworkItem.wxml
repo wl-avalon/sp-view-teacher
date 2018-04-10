@@ -1,0 +1,19 @@
+<view wx:if="{{notDone.length > 1}}" class="homework-finish-process">
+  剩余{{notDone.length}}位同学未完成
+</view>
+<view wx:else class="homework-finish-process">
+  全部同学都完成了，平均耗时{{averageTime}}分钟
+</view>
+<view wx:if="{{notDone.length > 0}}" class="not-done-student-area">
+  <view class="not-done-title">未完成的学生</view>
+  <view wx:for="{{notDone}}" class="not-done-student-item">
+    {{item.studentName}}
+  </view>
+</view>
+<view wx:if="{{hasDone.length > 0}}" class="has-done-student-area">
+  <view class="has-done-title">已完成的学生</view>
+  <view wx:for="{{hasDone}}" class="has-done-student-item">
+    <view class="has-done-student-name">{{item.studentName}}</view>
+    <view class="has-done-student-cost-time">耗时{{item.costTime}}分钟</view>
+  </view>
+</view>

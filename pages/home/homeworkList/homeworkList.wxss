@@ -1,0 +1,66 @@
+page{
+  background-color: #ececec;
+}
+
+.class-info-area{
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+}
+.class-name-area{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.class-name-title{
+  padding-left: 30rpx;
+}
+.class-name-vale{
+  position: absolute;
+  right: 30rpx;
+}
+.homework-record-list-area{
+  width: 100%;
+  margin-top: 30rpx;
+  border-top: 1rpx solid #dcdcdc;
+}
+.homework-item{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.homework-item-down{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.homework-item-subject{
+  height: 90rpx;
+  padding-left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subject-content-cut-line{
+  margin-left: 200rpx;
+  margin-right: 200rpx;
+  border-top: 1rpx solid #dcdcdc;
+}
+.homework-item-content-title{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.homework-record-item{
+  height: 90rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #dcdcdc;
+}

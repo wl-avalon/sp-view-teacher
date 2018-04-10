@@ -1,0 +1,18 @@
+<view class="class-info-area">
+  <view class="class-name-area">
+    <view class="class-name-title">班级名称</view>
+    <view class="class-name-vale">{{classGrade}} {{className}}</view>
+  </view>
+</view>
+
+<view wx:if="{{homeworkItemList.length > 0}}" class="homework-record-list-area">
+  <view wx:for="{{homeworkItemList}}" wx:key="unique" class="homework-item" hover-class='homework-item-down' data-idx="{{index}}" bindtap='jumpToHomeworkItemList'>
+    <view class="homework-item-subject">{{item.subject}} 作业{{index + 1}}</view>
+    <view class="subject-content-cut-line"></view>
+    <view class="homework-item-content-title">{{item.content}}</view>
+  </view> 
+</view>
+
+<view wx:else class="homework-record-item">
+  尚未布置今天作业
+</view>

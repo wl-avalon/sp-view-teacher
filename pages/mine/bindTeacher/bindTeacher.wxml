@@ -1,0 +1,25 @@
+<view class="class-info-area">
+  <view class="class-info-title subtitle-size">班级信息</view>
+  <view class="class-info-content">
+    <view class="class-info-item">
+      <view class="class-info-item-title">班级名称</view>
+      <view class="class-info-item-value">{{classGrade}} {{className}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="subject-picker-area">
+  <view class="subject-picker-title subtitle-size">请选择您所负责的科目</view>
+  <picker bindchange="bindPickerChange" value="{{selectedIndex}}" range="{{subjectArray}}">
+    <view class='subject-picker'>
+      <view class="subject-title">科目名称</view>
+      <view class="subject-value">{{subjectArray[selectedIndex]}}</view>
+    </view>
+  </picker>
+</view>
+
+<view class="main-button-area">
+  <view class="bind-class-teacher-button" hover-class='bind-class-teacher-button-down' bindtap='bindTeacherAndClass'>
+    确认绑定
+  </view>
+</view>

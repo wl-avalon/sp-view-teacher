@@ -1,0 +1,88 @@
+page{
+  background-color: #ececec;
+}
+
+.class-info-area{
+  margin-top: 20rpx;
+  width: 100%;
+}
+
+.class-info-title{
+  padding-left: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.class-info-content{
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+}
+
+.class-info-item{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 30rpx;
+  display: flex;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.class-info-item-value{
+  position: absolute;
+  right: 30rpx;
+}
+
+.main-button-area{
+  position: fixed;
+  bottom: 0;
+  margin-top: 20rpx;
+  width: 100%;
+}
+
+.bind-class-teacher-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.bind-class-teacher-button-down{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.subject-picker-area{
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.subject-picker-title{
+  padding-left: 30rpx;
+  margin-bottom: 10rpx; 
+}
+
+.subject-picker{
+  display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.subject-title{
+  padding-left: 30rpx;
+}
+
+.subject-value{
+  position: absolute;
+  right: 30rpx;
+}
