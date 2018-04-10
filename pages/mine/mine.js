@@ -9,6 +9,7 @@ Page({
     userIcon: '',
     userName: '',
     classList: {},
+    subClassList: {},
   },
 
   /**
@@ -45,6 +46,7 @@ Page({
   getMyClassSuccess: function (data){
     this.setData({
       classList: data.classList,
+      bindClassList: data.bindClassList,
     });
   },
   getMyClassFailed: function(){
@@ -61,9 +63,18 @@ Page({
     var classUuid = classInfo.classUuid;
     var className = classInfo.className;
     var classNowGrade = classInfo.classNowGrade;
-    var url = '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className' + className + '&classNowGrade=' + classNowGrade;
     wx.navigateTo({
-      url: '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className=' + className + '&classNowGrade=' + classNowGrade,
+      url: '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className=' + className + '&classNowGrade=' + classNowGrade + '&type=1',
     })
   },
+  jumpToClassDetailByGuest: function(e){
+    var touchClassIndex = e.currentTarget.dataset.idx;
+    var classInfo = this.data.classList[touchClassIndex];
+    var classUuid = classInfo.classUuid;
+    var className = classInfo.className;
+    var classNowGrade = classInfo.classNowGrade;
+    wx.navigateTo({
+      url: '/pages/mine/classDetail/classDetail?classUuid=' + classUuid + '&className=' + className + '&classNowGrade=' + classNowGrade + '&type=2',
+    })
+  }
 })

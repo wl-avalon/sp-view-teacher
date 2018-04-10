@@ -1,101 +1,51 @@
-.today-homework-container{
-  width:100%;
-  height: 400rpx;
-  border-bottom: 1rpx solid #dcdcdc;
-  border-top: 1rpx solid #dcdcdc;
+page{
+  background-color: #ececec;
 }
-.today-homework-title-container{
-  height: 150rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.today-homework-title-text{
-  font-weight: bold;
-  font-size: 60rpx;
-}
-.today-homework-time-container{
-  height: 50rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.today-homework-time-text{
-  font-size: 30rpx;
-}
-.today-homework-process-container-left{
-  float:left;
-  width: 50%;
-  height: 200rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.today-homework-process-container-right{
-  float:left;
-  width: 50%;
-  height: 200rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-.yesterday-homework-container{
-  width:100%;
-  height: 400rpx;
-  border-bottom: 1rpx solid #dcdcdc;
-}
-.yesterday-homework-title-container{
-  height: 150rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.yesterday-homework-title-text{
-  font-weight: bold;
-  font-size: 60rpx;
-}
-.yesterday-homework-time-container{
-  height: 50rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.yesterday-homework-time-text{
-  font-size: 30rpx;
-}
-.yesterday-homework-process-container-left{
-  float:left;
-  width: 50%;
-  height: 200rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.yesterday-homework-process-container-right{
-  float:left;
-  width: 50%;
-  height: 200rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .layout-homework-container{
   width:100%;
-  height: 450rpx;
-  border-bottom: 1rpx solid #dcdcdc;
-  margin-top: 30rpx;
-  display: flex;
-  justify-content: center;
+  height: 90rpx;
+  border-top: 1rpx solid #dcdcdc;
+  position: fixed;
+  bottom: 0;
 }
 .layout-homework-button{
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 30rpx;
+  width: 100%;
+  height: 90rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+}
+.layout-homework-button-down{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+}
+.create-class-title{
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  font-size: 25rpx;
+}
+
+.class-item{
+  width: 100%;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.class-item-down{
+  width: 100%;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
 }

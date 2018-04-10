@@ -59,6 +59,13 @@ function loginFailed(){
     icon: 'none',
     duration: 2000,
     mask: true,
+    success: function () {
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '/pages/passport/login/login',
+        });
+      }, 2000);
+    }
   });
 }
 

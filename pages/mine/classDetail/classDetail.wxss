@@ -53,3 +53,54 @@
   justify-content: center;
   background-color: #dcdcdc;
 }
+
+page{
+  background-color: #ececec;
+}
+
+.jump-bind-teacher{
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+  margin-top: 20rpx;
+}
+
+.jump-bind-teacher-down{
+  width: 100%;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+  margin-top: 20rpx;
+}
+
+.cut-line{
+  height: 1rpx;
+  background-color: #dcdcdc;
+}
+
+.jump-bind-parent{
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+  margin-top: 20rpx;
+}
+
+.jump-bind-parent-down{
+  width: 100%;
+  height: 90rpx;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+  margin-top: 20rpx;
+}

@@ -34,7 +34,26 @@ var getStudentOfClass = function (params) {
   CommonApi.requestPost(url, postData, params.successFunc, params.failedFunc);
 }
 
+var getClassDetail = function (params) {
+  var url = domain.STUDY_PALACE_HOST + uriConst.GET_CLASS_DETAIL;
+  var postData = {
+    classUuid: params.classUuid,
+  };
+  CommonApi.requestPost(url, postData, params.successFunc, params.failedFunc);
+}
+
+var bindTeacherToClass = function(params){
+  var url = domain.STUDY_PALACE_HOST + uriConst.BIND_TEACHER_TO_CLASS;
+  var postData = {
+    classUuid: params.classUuid,
+    subject: params.subject,
+  };
+  CommonApi.requestPost(url, postData, params.successFunc, params.failedFunc);
+}
+
 module.exports.addClass = addClass;
 module.exports.addStudents = addStudents;
 module.exports.getMyAllClass = getMyAllClass;
 module.exports.getStudentOfClass = getStudentOfClass;
+module.exports.getClassDetail = getClassDetail;
+module.exports.bindTeacherToClass = bindTeacherToClass;

@@ -1,4 +1,5 @@
 var SchoolAdminApi = require('/../../../apis/SchoolAdmin.js');
+var LoginService = require("/../../../services/common/login.js");
 
 Page({
 
@@ -17,12 +18,6 @@ Page({
     var className = e.detail.value;
     this.setData({
       className: className,
-    });
-  },
-  blurClassGrade: function(e){
-    var className = e.detail.value;
-    this.setData({
-      class: className,
     });
   },
   addClass: function(){

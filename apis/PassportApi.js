@@ -6,6 +6,7 @@ var login = function (code, userData, successFunc, failedFunc) {
   var postData = {
     code: code,
     userData: JSON.stringify(userData),
+    // registerFrom: 1,
   };
   wx.request({
     url: url,
@@ -15,7 +16,6 @@ var login = function (code, userData, successFunc, failedFunc) {
     },
     method: "POST",
     success: function(res) {
-      console.log(res.data);
       var response = res.data;
       successFunc(response);
     },

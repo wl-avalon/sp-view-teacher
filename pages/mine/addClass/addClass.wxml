@@ -1,4 +1,4 @@
-<view class='main-container gray-background-color height10000'>
+<view class='main-container gray-background-color'>
   <view class='class-info-input border-solid-top-bottom white-background-color'>
     <picker bindchange="bindPickerChange" value="{{selectedIndex}}" range="{{gradeArray}}">
       <view class='grade-picker'>
@@ -8,7 +8,7 @@
     </picker>
     <view class='class-name-area'>
       <text>班级名称</text>
-      <input class="class-name-input" placeholder="请输入班级名称" bindblur='blurClassname'></input>
+      <input class="class-name-input" placeholder="请输入班级名称" bindinput='blurClassname'></input>
     </view>
   </view>
   <view class='commit-button-area border-solid-top-bottom white-background-color' bindtap='addClass'>

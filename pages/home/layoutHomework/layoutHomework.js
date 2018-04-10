@@ -1,11 +1,15 @@
 var HomeworkApi = require('/../../../apis/Homework.js');
-var loginService = require("/../../../services/common/login.js");
+var LoginService = require("/../../../services/common/login.js");
+var SchoolAdminApi = require('/../../../apis/SchoolAdmin.js');
 
 Page({
 
   data: {
-    subjectArray: ['语文','数学','英语','物理','化学','生物','历史','地理','政治'],
+    subjectArray: ['无', '语文', '数学', '英语', '物理', '化学', '生物', '历史', '地理', '政治', '其他'],
     selectedIndex: 0,
+    selectedClassIndex: 0,
+    distinctClassList: [],
+    distinctClassNameList: [],
     homeContentList: ['', ''],
     touchX: 0,
     touchY: 0,
@@ -19,14 +23,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    loginService.checkLogin();
+    var loginParams = {
+      successFunc: this.loginSuccess,
+    };
+    LoginService.checkLogin(loginParams);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  loginSuccess: function () {
+    var inputParams = {
+      successFunc: this.getMyClassSuccess,
+      failedFunc: this.getMyClassFailed
+    };
+    SchoolAdminApi.getMyAllClass(inputParams);
+  },
+  getMyClassSuccess: function (data) {
+    var distinctClassList = data.distinctClassList;
+    distinctClassList.unshift({
+      classUuid: 0,
+      classNowGrade: '',
+      className: '空',
+    });
+    var distinctClassNameList = [];
+    for(var i = 0; i < distinctClassList.length; i++){
+      distinctClassNameList.push(distinctClassList[i].classNowGrade + ' ' + distinctClassList[i].className);
+    }
+    this.setData({
+      distinctClassList: data.distinctClassList ? data.distinctClassList : [],
+      distinctClassNameList: distinctClassNameList,
+    });
+  },
+  getMyClassFailed: function () {
+    wx.showToast({
+      title: "网络繁忙，请稍后再试",
+      icon: 'none',
+      duration: 2000,
+      mask: true,
+    });
   },
 
   /**
@@ -45,6 +76,11 @@ Page({
   bindPickerChange: function (e) {
     this.setData({
       selectedIndex: e.detail.value
+    })
+  },
+  bindPickerChangeClass: function (e) {
+    this.setData({
+      selectedClassIndex: e.detail.value
     })
   },
   addHomeworkContentItem: function(){
@@ -118,9 +154,29 @@ Page({
     homeContentList[index] = content;
   },
   commitHomework: function(){
+    if (this.data.selectedIndex == 0){
+      wx.showToast({
+        title: "请选择科目",
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+      });
+      return;
+    }
+    if (this.data.selectedClassIndex == 0) {
+      wx.showToast({
+        title: "请选择班级",
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+      });
+      return;
+    }
+    var classInfo = this.data.distinctClassList[this.data.selectedClassIndex];
     HomeworkApi.commitHomework({
       homeworkList: this.data.homeContentList,
       subject: this.data.selectedIndex,
+      class: classInfo.classUuid,
       successFunc: commitHomeworkSuccess,
       failedFunc: commitHomeworkFailed,
     });

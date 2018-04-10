@@ -8,15 +8,23 @@
       <view>{{userName}}</view>
     </view>
   </view>
+  <view class="create-class-title"> 我创建的班级 </view>
   <view class="main-button-area border-solid-top-bottom white-background-color">
      <block wx:for="{{classList}}" wx:key="unique">
       <view data-idx="{{index}}" bindtap='jumpToClassDetail' class='class-item' hover-class='class-item-down'>
       {{item['classNowGrade']}} {{item['className']}}
       </view>
     </block> 
-    <!-- <view>{{classList[0]['classNowGrade']}}</view> -->
     <view class="add-class-button-area" hover-class='add-class-button-down' bindtap='jumpToAddClassPage'>
       添加班级
     </view>
   </view>
+   <view class="create-class-title"> 我绑定的班级 </view>
+  <view class="main-button-area border-solid-top-bottom white-background-color">
+     <block wx:for="{{bindClassList}}" wx:key="unique">
+      <view data-idx="{{index}}" bindtap='jumpToClassDetailByGuest' class='class-item' hover-class='class-item-down'>
+      {{item['classNowGrade']}} {{item['className']}}
+      </view>
+    </block> 
+  </view> 
 </view>

@@ -2,14 +2,20 @@
   "pages": [
     "pages/home/home",
     "pages/mine/mine",
+    "pages/home/homeworkList/homeworkList",
+    "pages/home/homeworkItem/homeworkItem",
     "pages/question/question",
     "pages/question/modifySelect/modifySelect",
     "pages/question/queryAnalysis/queryAnalysis",
     "pages/home/layoutHomework/layoutHomework",
     "pages/passport/register/register",
     "pages/mine/addClass/addClass",
-    "pages/mine/classDetail/classDetail",
-    "pages/mine/addStudent/addStudent"
+    "pages/mine/addStudent/addStudent",
+    "pages/mine/bindParent/bindParent",
+    "pages/mine/createQrCode/createQrCode",
+    "pages/passport/login/login",
+    "pages/mine/bindTeacher/bindTeacher",
+    "pages/mine/classDetail/classDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

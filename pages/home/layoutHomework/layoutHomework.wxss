@@ -1,9 +1,9 @@
 .subject-picker{
-  margin-top: 50rpx;
+  /* margin-top: 50rpx; */
   margin-left: 50rpx;
   border-bottom: 1rpx solid #dcdcdc;
   padding-top: 20rpx;
-  padding-bottom: 20rpx;
+  padding-bottom: 10rpx;
   height: 50rpx;
   display: flex;
   display: -webkit-flex;

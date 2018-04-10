@@ -1,31 +1,23 @@
-<view class="main-container">
-  <view class="today-homework-container">
-    <view class="today-homework-title-container">
-      <text class="today-homework-title-text">今日作业</text>
+<view class="create-class-title"> 我创建的班级 </view>
+  <view class="main-button-area border-solid-top-bottom white-background-color">
+     <block wx:for="{{classList}}" wx:key="unique">
+      <view data-idx="{{index}}" bindtap='jumpToTodayClassHomeworkByHost' class='class-item' hover-class='class-item-down'>
+      {{item['classNowGrade']}} {{item['className']}}
+      </view>
+    </block>
+</view>
+
+<view class="create-class-title"> 我绑定的班级 </view>
+<view class="main-button-area border-solid-top-bottom white-background-color">
+  <block wx:for="{{bindClassList}}" wx:key="unique">
+    <view data-idx="{{index}}" bindtap='jumpToTodayClassHomeworkByGuest' class='class-item' hover-class='class-item-down'>
+      {{item['classNowGrade']}} {{item['className']}}
     </view>
-    <view class="today-homework-time-container">
-      <text class="today-homework-time-text">平均耗时：28分钟</text>
-    </view>
-    <view class="today-homework-process-container-left">
-    </view>
-    <view class="today-homework-process-container-right">
-    </view>
-  </view>
-  <view class="yesterday-homework-container">
-    <view class="yesterday-homework-title-container">
-      <text class="yesterday-homework-title-text">昨日作业</text>
-    </view>
-    <view class="yesterday-homework-time-container">
-      <text class="yesterday-homework-time-text">平均耗时：28分钟</text>
-    </view>
-    <view class="yesterday-homework-process-container-left">
-    </view>
-    <view class="yesterday-homework-process-container-right">
-    </view>
-  </view>
-  <view class="layout-homework-container">
-    <button class="layout-homework-button" bindtap='navigateToLayoutHomework'>
-       <text>布置作业</text> 
-    </button>
+  </block> 
+</view>
+
+<view class="layout-homework-container">
+  <view class="layout-homework-button" hover-class='layout-homework-button-down' bindtap='navigateToLayoutHomework'>
+    <text>布置作业</text> 
   </view>
 </view>

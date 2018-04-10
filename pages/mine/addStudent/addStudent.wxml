@@ -1,4 +1,4 @@
-<view class="main-container ">
+<view class="main-container">
   <view class="class-info-area">
     <text class="class-info-title">班级名</text>
     <text class="class-info-name">{{classNowGrade}} {{className}}</text>

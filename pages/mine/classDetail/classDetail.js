@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userType: 0,      //访问用户身份 0:未定义 1:班主任 2:任课教师 
     classUuid: '',
     studentList: [],
     className: '',
@@ -20,8 +21,9 @@ Page({
     var classUuid = options.classUuid;
     this.setData({
       classUuid: classUuid,
-      className: options.className,
-      classNowGrade: options.classNowGrade,
+      userType: options.type,
+      className: options.className ? options.className : '',
+      classNowGrade: options.classNowGrade ? options.classNowGrade : '',
     });
   },
 
@@ -53,5 +55,15 @@ Page({
     wx.navigateTo({
       url: '/pages/mine/addStudent/addStudent?classUuid=' + this.data.classUuid + '&className=' + this.data.className + '&classNowGrade=' + this.data.classNowGrade,
     })
-  }
+  },
+  jumpToBindParent: function(){
+    wx.navigateTo({
+      url: '/pages/mine/createQrCode/createQrCode?classUuid=' + this.data.classUuid + '&className=' + this.data.className + '&classNowGrade=' + this.data.classNowGrade + '&type=2',
+    })
+  },
+  jumpToBindTeacher: function(){
+    wx.navigateTo({
+      url: '/pages/mine/createQrCode/createQrCode?classUuid=' + this.data.classUuid + '&className=' + this.data.className + '&classNowGrade=' + this.data.classNowGrade + '&type=1',
+    })
+  },
 })

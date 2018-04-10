@@ -73,3 +73,14 @@
   background-color: #dcdcdc;
   border-bottom: 1rpx solid #dcdcdc;
 }
+
+.create-class-title{
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  font-size: 25rpx;
+}
+
+page{
+  background-color: #ececec;
+}

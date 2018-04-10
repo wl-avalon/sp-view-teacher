@@ -29,5 +29,9 @@
 }
 
 .height10000{
-  height: 10000rpx;
+  height: 100%;
+}
+
+.subtitle-size{
+  font-size: 25rpx;
 }

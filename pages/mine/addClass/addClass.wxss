@@ -37,3 +37,7 @@
   right: 30rpx;
   text-align:right;
 }
+
+page{
+  background-color: #ececec;
+}
