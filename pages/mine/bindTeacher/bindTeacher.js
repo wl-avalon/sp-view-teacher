@@ -12,8 +12,7 @@ Page({
 
   onLoad: function (options) {
     LoginService.checkLogin();
-    var scene = decodeURIComponent(options.scene)
-    scene = '845373327512956931';
+    var scene = decodeURIComponent(options.scene);
     
     var requestParams = {
       classUuid: scene,
